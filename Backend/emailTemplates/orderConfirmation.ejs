@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+    .header { background-color: #f8f8f8; padding: 20px; text-align: center; }
+    .content { padding: 20px; }
+    .order-details { margin: 20px 0; border: 1px solid #ddd; padding: 15px; }
+    .footer { margin-top: 20px; font-size: 12px; color: #777; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Thank You for Your Order!</h1>
+    </div>
+    
+    <div class="content">
+      <p>Hello <%= order.customer.fullName %>,</p>
+      <p>Your order has been received and is being processed. Here are your order details:</p>
+      
+      <div class="order-details">
+        <h2>Order #<%= order.orderNumber %></h2>
+        <p><strong>Order Date:</strong> <%= new Date(order.createdAt).toLocaleDateString() %></p>
+        <p><strong>Status:</strong> <%= order.payment.status %></p>
+        
+        <h3>Product Information</h3>
+        <p><strong><%= order.product.name %></strong></p>
+        <p>Variant: <%= order.product.variant.color %>, <%= order.product.variant.size %></p>
+        <p>Quantity: <%= order.product.quantity %></p>
+        <p>Price: $<%= order.product.price.toFixed(2) %></p>
+        
+        <h3>Total: $<%= order.total.toFixed(2) %></h3>
+      </div>
+      
+      <h3>Shipping Information</h3>
+      <p><%= order.customer.fullName %></p>
+      <p><%= order.customer.address.street %></p>
+      <p><%= order.customer.address.city %>, <%= order.customer.address.state %> <%= order.customer.address.zipCode %></p>
+      
+      <p>We'll send you a shipping confirmation email when your order is on its way.</p>
+      <p>If you have any questions, please contact our support team.</p>
+    </div>
+    
+    <div class="footer">
+      <p>&copy; <%= new Date().getFullYear() %> ShopEase. All rights reserved.</p>
+    </div>
+  </div>
+</body>
+</html>
