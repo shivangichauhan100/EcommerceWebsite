@@ -1,8 +1,6 @@
 const nodemailer = require('nodemailer');
 const path = require('path');
 const ejs = require('ejs');
-
-// Configure transporter (using Mailtrap for testing)
 const transporter = nodemailer.createTransport({
   host: process.env.MAILTRAP_HOST,
   port: process.env.MAILTRAP_PORT,

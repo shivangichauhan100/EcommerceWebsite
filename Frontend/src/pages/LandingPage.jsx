@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import headphoneImage from '../assets/headphone.jpeg';
 import laptopImage from '../assets/laptop.jpeg'; 
 
+
 const products = [
   {
     id: 'prod_123',
